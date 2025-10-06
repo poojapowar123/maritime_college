@@ -1,0 +1,39 @@
+/* Responsive */
+@media (max-width: 768px) {
+  .top-row {
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  /* .connect {
+    display: none; hide contact info
+  } */
+
+  .right {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    margin: 5px 0;
+    font-size: 12px;
+  }
+
+  .center {
+    flex-direction: row;   /* keep logos on both sides */
+    gap: 10px;
+  }
+
+  .logo {
+    width: 45px;           /* shrink logos for mobile */
+  }
+
+  .college-name h1 {
+    font-size: 18px;
+  }
+
+  .college-name p {
+    font-size: 12px;
+    padding: 0 10px; /* prevent text touching edges */
+  }
+}

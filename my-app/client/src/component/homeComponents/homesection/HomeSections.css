@@ -1,0 +1,295 @@
+.section-one-vedio {
+  position: relative;
+  width: 100%;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.enquiry button {
+  background: #cfa33e;
+  color: black;
+  font-weight: bold;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  height: 100px;
+  width: 50px;
+  font-size: 16px;
+  transform: rotate(180deg);
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
+.social-icons svg {
+  width:40px;
+  height: 40px;
+  font-size: 25px;
+  padding: 5px;
+  color: white;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;          
+  visibility: hidden;  
+}
+
+.social-icons svg:first-child {
+  opacity: 1;
+  visibility: visible;
+}
+
+.social-icons:hover svg {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 900px) {
+  .video-container {
+    height:40vh;
+  }
+
+  .overlay {
+    gap: 15px;
+    align-items: flex-end;
+  }
+
+  .enquiry button {
+    width: 40px;
+    height: 80px;
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+
+  .social-icons svg {
+    width: 30px;
+    height: 25px;
+    font-size: 20px;
+  }
+}
+
+/* Mobile: up to 600px */
+@media (max-width: 600px) {
+  .video-container {
+    height:30vh; 
+  }
+
+  .overlay {
+    gap: 10px;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px
+  }
+
+ .enquiry button {
+    width: 30px;
+    font-size: 13px;
+    padding: 10px 10px;
+  }
+
+  .social-icons svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Section 2 */
+.section-two-imp-notice{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #072040 ;
+  height: 50px;
+  padding: 15px 0;
+}
+
+.notice-title {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 30px;
+  background-color: #cfa33e;
+}
+
+.notice-text {
+  flex: 1;
+  margin: 0 15px;
+  color: white;
+}
+
+.apply-btn {
+  text-transform: none;
+}
+
+/* Tablet: 601px to 900px */
+@media (max-width: 900px) {
+ .section-two-imp-notice{
+    height: 30px;
+  }
+
+  .notice-title {
+    font-size: 16px;
+    padding: 22px;
+  }
+
+  .notice-text {
+    margin: 0;
+  }
+}
+
+/* Mobile: up to 600px */
+@media (max-width: 600px) {
+  .section-two-imp-notice{
+    height: 15px;
+  }
+
+  .notice-title {
+    font-size: 13px;
+    text-align: center;
+    width: 65px;
+    padding: 8px;
+  }
+
+  .notice-text {
+    font-size: 13px;
+  }
+
+  .apply-btn {
+    width: 50px;
+    height: 45px;
+  }
+}
+
+/* Section 3 */
+.section-three-metric {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.section-three-metric h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.section-three-metric h2 {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 30px;
+  color: #7e7d7d;
+}
+
+.metric-card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.metric-card {
+  text-align: center;
+  padding: 10px 80px;
+  background: none;
+  border: none;
+}
+
+.metric-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.metric-card h1 {
+font-size: 34px;
+font-weight: 800;
+}
+
+.metric-card h2 {
+  font-size: 16px;
+  color: #666;
+}
+
+/* Tablet - 5 cards in one line but smaller */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .metric-card {
+    flex: 1 1 18%;
+    max-width: 18%;
+    padding: 10px 0;
+  }
+
+  .metric-card img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .metric-card h1 {
+    font-size: 28px;
+    font-weight: 800;
+  }
+
+  .metric-card h2 {
+    font-size: 14px;
+  }
+}
+
+/* Mobile - 3 metric-cards first row, 2 metric-cards second row */
+@media (max-width: 600px) {
+  .metric-card {
+    flex: 1 1 30%;
+    max-width: 30%;
+    box-sizing: border-box;
+    padding: 0;
+  }
+
+  /* Force 4th & 5th metric-card to take ~45% each */
+  .metric-card:nth-child(4),
+  .metric-card:nth-child(5) {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
+
+  .metric-card img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .metric-card h1 {
+    font-size: 30px;
+    font-weight: 600;
+  }
+
+  .metric-card h2 {
+    font-size: 12px;
+  }
+}
