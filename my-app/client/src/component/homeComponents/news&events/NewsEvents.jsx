@@ -154,7 +154,7 @@ const NewsEvents = () => {
       </div>
 
       {/* Happenings Right */}
-      <div className="news-right-container">
+      <div className="news-right-container" id="news-right-container">
         <h3 className="happenings-title">Happenings</h3>
         <p className="happenings-subtitle">
           Catch every event for shaping our journey

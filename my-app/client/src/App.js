@@ -6,6 +6,7 @@ import Navbar from "./component/navbar/Navbar";
 import Home from "./pages/home/Home";
 import Gallery from "./component/Gallery/Gallery";
 import { Box } from "./component/homeComponents/Box";
+import Footer from "./component/footer/Footer";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Route path="/" element={<Home />} />
         {/* <Route path="/about" element={<About />} /> */}
       </Routes>
-      <Gallery/>
+      <Footer/>
+      {/* <Gallery/> */}
     </>
     //   <div className="App">
     //   <Box/>
