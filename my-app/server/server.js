@@ -1,26 +1,61 @@
-require("dotenv").config(); // load .env
-
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-const helmet = require("helmet");
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
+import db from "./db.js";
+// import { body, validationResult } from "express-validator";
 
 const app = express();
-app.use(cors());
-app.use(helmet());
-app.use(express.json());
 
-// Connect to MongoDB Atlas
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+app.use(cors({origin: "http://localhost:3000"}));
+app.use(bodyParser.json());
+
+
+app.get("/employees", (req, res) => {
+  db.query("SELECT * FROM employees", (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(results);  // send results as JSON
+  });
+});
+
+app.get("/test", (req, res) => {
+  db.query("SELECT 1 + 1 AS result", (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json(results);
+  });
+});
+
+
+// Create Employee
+app.post("/employees", (req, res) => {
+  const { name, position, salary } = req.body;
+  const sql = "INSERT INTO employees (name, position, salary) VALUES (?, ?, ?)";
+  db.query(sql, [name, position, salary], (err, result) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json({ message: "Employee added successfully!", id: result.insertId });
+  });
 })
-.then(() => console.log("MongoDB connected ✅"))
-.catch(err => console.log("MongoDB connection error:", err));
 
-// Test route
-app.get("/", (req, res) => res.send("Backend running lohfdvhfkdjvhkjfdhkfhkvhdfjkvhjdfkhvjkfhkjbhfkhbkfhgfgh🚀"));
+// Update Employee
+app.put("/employees/:id", (req, res) => {
+  const { id } = req.params;
+  const { name, position, salary } = req.body;
+  const sql = "UPDATE employees SET name=?, position=?, salary=? WHERE id=?";
+  db.query(sql, [name, position, salary, id], (err, result) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json({ message: "Employee updated successfully!" });
+  });
+});
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Delete Employee
+app.delete("/employees/:id", (req, res) => {
+  const { id } = req.params;
+  db.query("DELETE FROM employees WHERE id=?", [id], (err, result) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json({ message: "Employee deleted!" });
+  });
+});
+
+
+app.listen(3300, () => console.log("Server running on port 3300"));
 

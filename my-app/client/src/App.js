@@ -7,22 +7,23 @@ import Home from "./pages/home/Home";
 import Gallery from "./component/Gallery/Gallery";
 import { Box } from "./component/homeComponents/Box";
 import Footer from "./component/footer/Footer";
+import EmployeeForm from "./component/form/EmployeeForm";
 
 function App() {
   return (
     <>
-    <Topbar/>
-      {/* <Navbar/> */}
+    {/* <Topbar/>
       <Routes>
         <Route path="/" element={<Home />} />
+         </Routes>
+      <Footer/> */}
         {/* <Route path="/about" element={<About />} /> */}
-      </Routes>
-      <Footer/>
-      {/* <Gallery/> */}
+
+
+
+        <EmployeeForm/>
+     
     </>
-    //   <div className="App">
-    //   <Box/>
-    // </div>
   );
 }
 
